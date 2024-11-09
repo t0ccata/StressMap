@@ -1,6 +1,7 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
 import TextInput from '../Components/TextInput.vue';
+import { route } from '../../../../vendor/tightenco/ziggy/src/js';
 
 const form = useForm({
     email: null,
@@ -36,7 +37,7 @@ const submit =() => {
             <TextInput name="Confirm Password" type="password" v-model="form.password_confirmation" />
 
             <div>
-                <p class="text-slate-600 mb-2">Already a user ? <a href="#" class="text-link">Login</a></p>
+                <p class="text-slate-600 mb-2">Already a user ? <a :href='route("login")' class="text-link">Login</a></p>
                 <button class="primary-btn" :disabled="form.processing">Register</button>
             </div>
         </form>
